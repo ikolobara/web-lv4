@@ -1,0 +1,141 @@
+:root {
+  --size-new: 300px;
+
+  /* boje za žanrove */
+  --thriller: #e63946;
+  --romance: #f1faee;
+  --adventure: #457b9d;
+  --animation: #a8dadc;
+  --fantasy: #f4a261;
+  --documentary: #2a9d8f;
+}
+
+/* osnovni stil */
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f0f5;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.chart-section h2 {
+  color: #333;
+  margin-top: 20px;
+}
+
+/* layout */
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+/* novi pie chart */
+.pie-chart-new {
+  width: var(--size-new);
+  height: var(--size-new);
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--thriller) 0% 25%,
+    var(--romance) 25% 45%,
+    var(--adventure) 45% 60%,
+    var(--animation) 60% 70%,
+    var(--fantasy) 70% 90%,
+    var(--documentary) 90% 100%
+  );
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* hover efekt */
+.pie-chart-new:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+
+/* legenda */
+.legend-new {
+  list-style: none;
+  padding: 0;
+  font-size: 16px;
+  text-align: left;
+}
+
+.legend-new li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+  transition: transform 0.2s ease;
+}
+
+.legend-new li:hover {
+  transform: scale(1.05);
+}
+
+.legend-new span {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.thriller { background: var(--thriller); }
+.romance { background: var(--romance); }
+.adventure { background: var(--adventure); }
+.animation { background: var(--animation); }
+.fantasy { background: var(--fantasy); }
+.documentary { background: var(--documentary); }
+
+/* responsive */
+@media (max-width: 700px) {
+  .chart-container {
+    flex-direction: column;
+  }
+  .pie-chart-new {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+/* animacija učitavanja pie charta */
+.pie-chart-new {
+  width: var(--size-new);
+  height: var(--size-new);
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--thriller) 0% 25%,
+    var(--romance) 25% 45%,
+    var(--adventure) 45% 60%,
+    var(--animation) 60% 70%,
+    var(--fantasy) 70% 90%,
+    var(--documentary) 90% 100%
+  );
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* početno stanje za animaciju */
+  transform: scale(0);
+  animation: chart-appear 1.2s ease forwards; /* trajanje i efekt */
+}
+
+/* keyframes animacije pojavljivanja */
+@keyframes chart-appear {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* hover efekt */
+.pie-chart-new:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
